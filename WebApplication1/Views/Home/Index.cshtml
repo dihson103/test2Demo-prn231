@@ -1,0 +1,45 @@
+﻿@model List<DetailResponseWithMaster>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <form class="row" method="get" action="/Home">
+        <div class="col row">
+            <label class="col-sm-4 col-form-label">From</label>
+            <input class="form-control col-sm-8" id="searchName" name="detailName" type="text" placeholder="From" />
+        </div>
+        <div class="col row">
+            <label class="col-sm-4 col-form-label">To</label>
+            <input class="form-control col-sm-8" id="searchPrice" name="masterId" type="text" placeholder="To" />
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-info">Search</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Master</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.DetailId</th>
+                <td>@item.DetailName</td>
+                <td>@item.MasterName</td>
+            </tr>
+        }
+    </tbody>
+</table>
